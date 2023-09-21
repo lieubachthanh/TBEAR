@@ -1,0 +1,99 @@
+#:kivy 2.1
+
+LoginScreen:
+    name: 'login'
+    MDFloatLayout:
+        Image:
+            source: 'assets\login.png'
+            allow_stretch: True
+            keep_ratio: False
+
+        MDLabel:
+            text: "Đăng nhập"
+            font_size: '25sp'
+            pos_hint: {"center_x": .6,"center_y": .65}
+            haligh: "center"
+            color: rgba(252, 200, 115,255) 
+
+        MDTextField:
+            hint_text: "Email"
+            mode: "rectangle"
+            font_size: '15sp'
+            padding: "3dp"
+            pos_hint: {'center_x': .5, "center_y": .58}
+            size_hint_x: .8
+            line_color_focus: rgba(204, 204, 204,255)
+            foreground_color: rgba(204, 204, 204,255) 
+        
+        MDTextField:
+            hint_text: "Password"
+            mode: "rectangle"
+            font_size: '15sp'
+            icon_right: 'eye-off'
+            padding: "3dp"
+            pos_hint: {'center_x': .5, "center_y": .50}
+            size_hint_x: .8
+            password: True
+            line_color_focus: rgba(204, 204, 204,255)
+
+        MDTextButton:
+            text: 'Quên mật khẩu'
+            pos_hint: {'center_x': .75, 'y': .42}
+            on_release: 
+                app.root.current = "forget"
+                root.manager.transition.direction = "left"
+                root.manager.get_screen('forget').ids.MyCarousel.go_to_first_slide()
+    
+        MDRaisedButton:
+            elevation: 0
+            text: "Đăng nhập"
+            font_size: '20sp'
+            text_color: rgba(50,50,50,255)
+            size_hint_x: .8
+            padding: "16dp"
+            pos_hint: {'center_x': .5, "center_y": .35}
+            md_bg_color: rgba(204, 204, 204,255)
+            on_release: 
+                app.root.current = "home"
+                root.manager.transition.direction = "left"
+        
+        MDLabel:
+            text: "Đăng nhập bằng phương thức khác"
+            halign: "center"
+            # font_size: '20sp'
+            pos_hint: {"center_y": .28}
+            color: rgba(179, 179, 179,255)
+        
+        MDIconButton:
+            icon: "assets\google_icon.png"
+            # size: dp(300), dp(300)
+            pos_hint: {"center_x": .25, "center_y": .24}
+            # on_release: root.sign_in_by_google()
+
+        MDIconButton:
+            icon: "assets\facebook_logo.png"
+            # icon_size: "50sp"
+            pos_hint: {"center_x": .5, "center_y": .24}
+            # on_release: root.sign_in_by_google()
+
+        MDIconButton:
+            icon: "assets\twitter_x_icon.png"
+            # size: dp(300), dp(300)
+            pos_hint: {"center_x": .75, "center_y": .24}
+            # on_release: root.sign_in_by_google()
+
+        MDLabel:
+            text: "Người mới?"
+            bold : True
+            # font_size: '20sp'
+            pos_hint: {"center_x": .75, "center_y": .15}
+            color: rgba(0, 0, 0,255)
+
+        MDTextButton:
+            text: 'Đăng ký ngay'
+            color: rgba(252, 200, 115,255) 
+            pos_hint: {'center_x': .58, 'center_y': .15}
+            on_release: 
+                app.root.current = "signup"
+                root.manager.transition.direction = "left"
+                

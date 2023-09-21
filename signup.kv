@@ -1,0 +1,121 @@
+#:kivy 2.1
+
+SignUpScreen:
+    name: 'signup'
+    MDFloatLayout:
+        Image:
+            source: 'assets\login.png'
+            allow_stretch: True
+            keep_ratio: False
+
+        MDLabel:
+            text: "Đăng ký"
+            font_size: '25sp'
+            halign: "center"
+            pos_hint: {"center_y": .66}
+            color: rgba(252, 200, 115,255) 
+
+        MDTextField:
+            hint_text: "Email"
+            mode: "rectangle"
+            font_size: '15sp'
+            padding: "3dp"
+            pos_hint: {'center_x': .5, "center_y": .60}
+            size_hint_x: .8
+            line_color_focus: rgba(204, 204, 204,255)
+            foreground_color: rgba(204, 204, 204,255) 
+        
+        MDTextField:
+            hint_text: "Tên người dùng"
+            mode: "rectangle"
+            font_size: '15sp'
+            padding: "3dp"
+            pos_hint: {'center_x': .5, "center_y": .53}
+            size_hint_x: .8
+            line_color_focus: rgba(204, 204, 204,255)
+        
+        MDTextField:
+            hint_text: "Vui lòng nhập mật khẩu"
+            mode: "rectangle"
+            font_size: '15sp'
+            icon_right: 'eye-off'
+            padding: "3dp"
+            pos_hint: {'center_x': .5, "center_y": .46}
+            size_hint_x: .8
+            password: True
+            line_color_focus: rgba(204, 204, 204,255)
+
+        MDTextField:
+            hint_text: "Vui lòng nhập lại mật khẩu"
+            mode: "rectangle"
+            font_size: '15sp'
+            icon_right: 'eye-off'
+            padding: "3dp"
+            pos_hint: {'center_x': .5, "center_y": .39}
+            size_hint_x: .8
+            password: True
+            line_color_focus: rgba(204, 204, 204,255)
+        
+        MDCheckbox:
+            size_hint: None, None
+            size: "48dp", "48dp"
+            pos_hint: {'center_x': .13, 'center_y': .33}
+
+        MDTextButton:
+            text: 'Tôi đã đọc và đồng ý Điều Khoản dịch vụ & Chính sách Quyền Riêng Tư'
+            size_hint_x: .7
+            pos_hint: {'x': .19, 'y': .30}
+            color: rgba(204, 204, 204,255)
+            # on_release: root.forget_password()
+    
+        MDRaisedButton:
+            elevation: 0
+            text: "Đăng ký"
+            font_size: '20sp'
+            text_color: rgba(50,50,50,255)
+            size_hint_x: .8
+            padding: "10dp"
+            pos_hint: {'center_x': .5, "center_y": .22}
+            md_bg_color: rgba(204, 204, 204,255)
+            # on_release: root.sign_in()
+        
+        
+        MDLabel:
+            text: "đã có tài khoản?"
+            # font_size: '20sp'
+            pos_hint: {"center_x": .75, "center_y": .15}
+            color: rgba(0, 0, 0,255)
+
+        MDTextButton:
+            text: 'Đăng nhập'
+            color: rgba(252, 200, 115,255) 
+            pos_hint: {'center_x': .65, 'center_y': .15}
+            on_release: 
+                app.root.current = "login"
+                root.manager.transition.direction = "right"
+
+        MDLabel:
+            text: "Đăng nhập bằng phương thức khác"
+            halign: "center"
+            # font_size: '20sp'
+            pos_hint: {"center_y": .1}
+            color: rgba(179, 179, 179,255)
+        
+        MDIconButton:
+            icon: "assets\google_icon.png"
+            # size: dp(300), dp(300)
+            pos_hint: {"center_x": .25, "center_y": .06}
+            # on_release: root.sign_in_by_google()
+
+        MDIconButton:
+            icon: "assets\facebook_icon.png"
+            # size: dp(300), dp(300)
+            pos_hint: {"center_x": .5, "center_y": .06}
+            # on_release: root.sign_in_by_google()
+
+        MDIconButton:
+            icon: "assets\twitter_x_icon.png"
+            # size: dp(300), dp(300)
+            pos_hint: {"center_x": .75, "center_y": .06}
+            # on_release: root.sign_in_by_google()
+        

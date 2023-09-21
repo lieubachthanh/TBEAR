@@ -1,0 +1,58 @@
+#:kivy 2.1
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+project:
+    name: 'project'
+    MDFloatLayout:
+        Image:
+            source: 'assets\Home.png'
+            allow_stretch: True
+            keep_ratio: False
+        MDIconButton:
+            icon: "assets\logo_tbear.png"
+            size_hint_y: .1
+            icon_size: "110sp"
+            pos_hint: {'center_x': .16, "center_y": .96}
+            on_release: 
+                root.manager.transition = NoTransition()
+                app.root.current = "home"
+                root.manager.transition = SlideTransition()  
+        MDIconButton:
+            icon: "email-outline"
+            md_bg_color: rgba(255,255,255,255)
+            pos_hint: {'center_x': .7, "center_y": .95}
+            # on_release: 
+        MDIconButton:
+            icon: "assets\Avatar.png"
+            icon_size: "60sp"
+            pos_hint: {'center_x': .88, "center_y": .95}
+        MDFlatButton:
+            text: "Trang chủ"
+            theme_text_color: 'Custom'
+            text_color : rgba(255, 255, 255,255)
+            size_hint_x: .25
+            pos_hint: {"center_x": .2,"center_y": .88} 
+            md_bg_color:  rgba(74, 74, 74,255)
+            on_release: 
+                root.manager.transition = NoTransition()
+                app.root.current = "home"
+                root.manager.transition = SlideTransition()
+
+        MDFlatButton:
+            text: "Dự án"
+            # theme_text_color: 'Custom'
+            size_hint_x: .25
+            pos_hint: {"center_x": .5,"center_y": .88} 
+            md_bg_color:  rgba(252, 204, 126,255)
+            # text_color : rgba(255, 255, 255,255)
+            # on_release: 
+                
+        MDFlatButton:
+            text: "Thanh toán"
+            theme_text_color: 'Custom'
+            size_hint_x: .25
+            pos_hint: {"center_x": .8,"center_y": .88} 
+            md_bg_color:  rgba(74, 74, 74,255)
+            text_color : rgba(255, 255, 255,255)
+            on_release: 
+                app.root.current = "login"

@@ -1,0 +1,266 @@
+#:kivy 2.1
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import MDTapTargetView kivymd.uix.taptargetview
+<Spacer@Widget>
+    size_hint_y: None
+    height: '15dp'
+
+
+<CardPhim@RelativeLayout>
+     
+    size_hint_y: None
+    MDCard:
+        md_bg_color: rgba(0, 0, 0,0)
+        MDFloatLayout:
+            id: phim
+            MDIconButton:
+                icon: "assets\Phim.png"
+                icon_size: "80sp"
+                pos_hint: {'center_x': .15, "center_y": .5}
+            MDLabel:
+                text: "PHIM"
+                bold: True
+                theme_text_color: 'Custom'
+                font_size: '25sp'
+                text_color: rgba(255, 255, 255, 255)
+                pos_hint: {'center_x': .4, "center_y": .75}
+                size_hint_x: .2
+            MDLabel:
+                text: "Tạo nên những thước phim ấn tượng"
+                pos_hint: {'center_x': .55, "center_y": .4}
+                size_hint_x: .5
+            MDIconButton:
+                id: button 
+                icon: "arrow-down-drop-circle-outline"
+                icon_size: "40sp"
+                pos_hint: {'center_x': .9, "center_y": .5}
+                theme_text_color: 'Custom'
+                text_color: rgba(255, 255, 255, 255)
+                on_release: 
+                    home.bottom_sheet.open() \
+                    if home.bottom_sheet.state == "close" else \
+                    home.bottom_sheet.dismiss()
+            
+
+            
+<CardVideo@RelativeLayout>
+    id: video
+    size_hint_y: None
+    MDCard:
+        md_bg_color: rgba(0, 0, 0,0)
+        MDFloatLayout:
+            MDIconButton:
+                icon: "assets\Video.png"
+                icon_size: "80sp"
+                pos_hint: {'center_x': .15, "center_y": .5}
+            MDLabel:
+                text: "VIDEO"
+                bold: True
+                theme_text_color: 'Custom'
+                font_size: '25sp'
+                text_color: rgba(255, 255, 255, 255)
+                pos_hint: {'center_x': .4, "center_y": .75}
+                size_hint_x: .2
+            MDLabel:
+                text: "Kể câu chuyện của bạn bằng hình ảnh và âm thanh"
+                pos_hint: {'center_x': .55, "center_y": .4}
+                size_hint_x: .5
+            MDIconButton:
+                icon: "arrow-down-drop-circle-outline"
+                icon_size: "40sp"
+                pos_hint: {'center_x': .9, "center_y": .5}
+                theme_text_color: 'Custom'
+                text_color: rgba(255, 255, 255, 255)
+
+
+<CardChup@RelativeLayout>
+    id: chup
+    size_hint_y: None
+    MDCard:
+        md_bg_color: rgba(0, 0, 0,0)
+        MDFloatLayout:
+            MDIconButton:
+                icon: "assets\Chup.png"
+                icon_size: "80sp"
+                pos_hint: {'center_x': .15, "center_y": .5}
+            MDLabel:
+                text: "CHỤP ẢNH"
+                bold: True
+                theme_text_color: 'Custom'
+                font_size: '25sp'
+                text_color: rgba(255, 255, 255, 255)
+                pos_hint: {'center_x': .46, "center_y": .75}
+                size_hint_x: .35
+            MDLabel:
+                text: "Tạo ra những bức ảnh đẹp và chuyên nghiệp"
+                pos_hint: {'center_x': .55, "center_y": .4}
+                size_hint_x: .5
+            MDIconButton:
+                icon: "arrow-down-drop-circle-outline"
+                icon_size: "40sp"
+                pos_hint: {'center_x': .9, "center_y": .5}
+                theme_text_color: 'Custom'
+                text_color: rgba(255, 255, 255, 255)
+
+
+<CardNhac@RelativeLayout>
+    id: nhac
+    size_hint_y: None
+    MDCard:
+        md_bg_color: rgba(0, 0, 0,0)
+        MDFloatLayout:
+            MDIconButton:
+                icon: "assets\Music.png"
+                icon_size: "80sp"
+                pos_hint: {'center_x': .15, "center_y": .5}
+            MDLabel:
+                text: "ÂM NHẠC"
+                bold: True
+                theme_text_color: 'Custom'
+                font_size: '25sp'
+                text_color: rgba(255, 255, 255, 255)
+                pos_hint: {'center_x': .45, "center_y": .75}
+                size_hint_x: .3
+            MDLabel:
+                text: "Kể câu chuyện của bạn bằng âm nhạc"
+                pos_hint: {'center_x': .55, "center_y": .4}
+                size_hint_x: .5
+            MDIconButton:
+                icon: "arrow-down-drop-circle-outline"
+                icon_size: "40sp"
+                pos_hint: {'center_x': .9, "center_y": .5}
+                theme_text_color: 'Custom'
+                text_color: rgba(255, 255, 255, 255)
+
+
+HomeScreen:
+    id: home
+    name: 'home'
+    MDBottomSheet:
+        id: bottom_sheet
+        type: "standard"
+        bg_color: "grey"
+        # default_opening_height: smart_tile.y - dp(12)
+        # size_hint_y: None
+        # height: root.height - (smart_tile.height + dp(24))
+    MDFloatLayout:
+        Image:
+            source: 'assets\Home.png'
+            allow_stretch: True
+            keep_ratio: False
+        MDIconButton:
+            icon: "assets\logo_tbear.png"
+            size_hint_y: .1
+            icon_size: "110sp"
+            pos_hint: {'center_x': .16, "center_y": .96}
+            on_release: app.root.current = "home"
+            # root.manager.transition.direction = "left"  
+        MDIconButton:
+            icon: "email-outline"
+            md_bg_color: rgba(255,255,255,255)
+            pos_hint: {'center_x': .7, "center_y": .95}
+            on_release: 
+                bottom_sheet.open() \
+                if bottom_sheet.state == "close" else \
+                bottom_sheet.dismiss()
+        MDIconButton:
+            icon: "assets\Avatar.png"
+            icon_size: "60sp"
+            pos_hint: {'center_x': .88, "center_y": .95}
+        MDFlatButton:
+            text: "Trang chủ"
+            size_hint_x: .25
+            pos_hint: {"center_x": .2,"center_y": .88} 
+            md_bg_color: rgba(252, 204, 126,255)
+        MDFlatButton:
+            text: "Dự án"
+            theme_text_color: 'Custom'
+            size_hint_x: .25
+            pos_hint: {"center_x": .5,"center_y": .88} 
+            md_bg_color:  rgba(74, 74, 74,255)
+            text_color : rgba(255, 255, 255,255)
+            on_release: 
+                root.manager.transition = NoTransition()
+                app.root.current = "project"    
+                root.manager.transition = SlideTransition()          
+        MDFlatButton:
+            text: "Thanh toán"
+            theme_text_color: 'Custom'
+            size_hint_x: .25
+            pos_hint: {"center_x": .8,"center_y": .88} 
+            md_bg_color:  rgba(74, 74, 74,255)
+            text_color : rgba(255, 255, 255,255)
+            on_release: 
+                app.root.current = "login"
+                root.manager.transition.direction = "left"
+     
+        MDCard:
+            background: 'assets\Bg_inf.png'
+            pos_hint: {"center_x": .5, "center_y": .72} 
+            size_hint: (.9, .17)
+            MDFloatLayout:
+                MDIconButton:
+                    icon: "assets\mayquay.png"
+                    icon_size: "80sp"
+                    pos_hint: {'center_x': .15, "center_y": .6}
+                MDFillRoundFlatButton:
+                    text: "Tìm hiểu thêm"
+                    theme_text_color: 'Custom'
+                    pos_hint: {"center_x": .48,"center_y": .6} 
+                    md_bg_color:  rgba(255, 255, 255, 50)
+                    text_color : rgba(255, 255, 255,255)
+                    line_color: rgba(255, 255, 255,255)
+                    # on_release: 
+                MDFillRoundFlatButton:
+                    text: "sản xuất"
+                    theme_text_color: 'Custom'
+                    pos_hint: {"center_x": .8,"center_y": .6} 
+                    md_bg_color:  rgba(0, 0, 0,180)
+                    text_color : rgba(255, 255, 255,255)
+                    line_color: rgba(255, 255, 255,255)
+                    
+                MDLabel:
+                    text: "Sản xuất từ con số 0 đến thành công là trách nhiệm và sứ mệnh của Tbear Studio chúng tôi. Hãy lựa chọn dịch vụ phù hợp với bạn, còn lại là nhiệm vụ của chúng tôi!"
+                    theme_text_color: 'Custom'
+                    text_color : rgba(255, 255, 255,255)
+                    size_hint: (.9,.25)
+                    pos_hint: {"center_x": .5,"center_y": .2} 
+                    font_size: '10sp'
+        MDCard:
+            md_bg_color:  rgba(255, 200, 111,255)
+            pos_hint: {"center_x": .5, "center_y": .3} 
+            size_hint: (1, .65)
+            
+        
+        MDScrollView:
+            size_hint: (1, .65)
+            pos_hint: {"center_x": .5, "center_y": .3} 
+            MDList:
+                id: list
+                Spacer:
+                CardPhim:
+                Spacer:
+                MDProgressBar:
+                    size_hint_x: .5
+                    value: 100
+                    color: rgba(255,255,255,255)
+                Spacer:
+                CardVideo:
+                Spacer:
+                MDProgressBar:
+                    size_hint_x: .5
+                    value: 100
+                    color: rgba(255,255,255,255)
+                Spacer:    
+                CardChup:
+                Spacer:
+                MDProgressBar:
+                    size_hint_x: .5
+                    value: 100
+                    color: rgba(255,255,255,255)
+                Spacer:
+                CardNhac:
+
+
+       
