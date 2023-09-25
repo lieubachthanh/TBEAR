@@ -1,0 +1,185 @@
+#:kivy 2.1
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+     
+video:
+    name: 'Video'
+    MDFloatLayout:
+        Image:
+            source: 'assets\Home.png'
+            allow_stretch: True
+            keep_ratio: False
+        MDIconButton:
+            icon: "assets\logo_tbear.png"
+            size_hint_y: .1
+            icon_size: "110sp"
+            pos_hint: {'center_x': .16, "center_y": .96}
+            on_release: 
+                app.root.current = "home"
+                root.manager.transition.direction = "right"  
+        MDIconButton:
+            icon: "email-outline"
+            md_bg_color: rgba(255,255,255,255)
+            pos_hint: {'center_x': .7, "center_y": .95}
+            # on_release: 
+        MDIconButton:
+            icon: "assets\Avatar.png"
+            icon_size: "60sp"
+            pos_hint: {'center_x': .88, "center_y": .95}
+        MDFlatButton:
+            text: "Trang chủ"
+            size_hint_x: .25
+            pos_hint: {"center_x": .2,"center_y": .88} 
+            md_bg_color: rgba(252, 204, 126,255)
+            on_release: 
+                app.root.current = "home"
+                root.manager.transition.direction = "right"
+        MDFlatButton:
+            text: "Dự án"
+            theme_text_color: 'Custom'
+            size_hint_x: .25
+            pos_hint: {"center_x": .5,"center_y": .88} 
+            md_bg_color:  rgba(74, 74, 74,255)
+            text_color : rgba(255, 255, 255,255)
+            on_release: 
+                root.manager.transition = NoTransition()
+                app.root.current = "project"    
+                root.manager.transition = SlideTransition()          
+        MDFlatButton:
+            text: "Thanh toán"
+            theme_text_color: 'Custom'
+            size_hint_x: .25
+            pos_hint: {"center_x": .8,"center_y": .88} 
+            md_bg_color:  rgba(74, 74, 74,255)
+            text_color : rgba(255, 255, 255,255)
+            on_release: 
+                app.root.current = "login"
+                root.manager.transition.direction = "left"
+
+        MDCard:
+            md_bg_color: rgba(250, 222, 166, 255)
+            size_hint: .9, .79
+            pos_hint: {"center_x": .5,"center_y": .42}
+            elevation: 1
+            VideoCarousel:
+                id: videoCarousel
+                MDFloatLayout:
+                    Image:
+                        source: 'assets\Video_bg.png'
+                        size_hint: 1, .35
+                        pos_hint: {"center_x": .5,"center_y": .85}
+                        allow_stretch: True
+                        keep_ratio: False
+
+                    MDLabel:
+                        text: "VIDEO"
+                        size_hint_x: .55
+                        pos_hint: {"center_x": .3,"center_y": .73}
+                        bold: True
+                        theme_text_color: 'Custom'
+                        font_size: '70sp'
+                        text_color: rgba(255, 255, 255, 255)
+
+                    MDLabel:
+                        text: "Dịch vụ này cung cấp cho khách hàng một sản phẩm video hoàn chỉnh, đáp ứng các yêu cầu về nội dung, hình ảnh, âm thanh và hiệu ứng."
+                        size_hint_x: .9
+                        pos_hint: {"center_x": .5,"center_y": .62}
+                        # theme_text_color: 'Custom'
+                        font_size: '15sp'
+                        # text_color: rgba(255, 255, 255, 255)
+                    
+                    MDLabel:
+                        text: "1M - 35M"
+                        size_hint_x: .6
+                        pos_hint: {"center_x": .65,"center_y": .5}
+                        # bold: True
+                        # theme_text_color: 'Custom'
+                        font_size: '50sp'
+                        # text_color: rgba(255, 255, 255, 255)
+
+                    MDFlatButton:
+                        text: "Music Video"
+                        size_hint_x: .8
+                        pos_hint: {"center_x": .5,"center_y": .4}
+                        md_bg_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.load_service(1)
+                    
+                    MDFlatButton:
+                        text: "Tiktok | Reel"
+                        size_hint_x: .8
+                        pos_hint: {"center_x": .5,"center_y": .33}
+                        md_bg_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.load_service(2)
+                    
+                    MDFlatButton:
+                        text: "Recap sự kiện"
+                        size_hint_x: .8
+                        pos_hint: {"center_x": .5,"center_y": .26}
+                        md_bg_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.load_service(3)
+                    
+                    MDFlatButton:
+                        text: "TVC | Viral video"
+                        size_hint_x: .8
+                        pos_hint: {"center_x": .5,"center_y": .19}
+                        md_bg_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.load_service(4)
+                    
+                    MDIconButton:
+                        icon: "arrow-left-thick"
+                        icon_size: "40sp"
+                        pos_hint: {'center_x': .1, "center_y": .05}
+                        # theme_text_color: 'Custom'
+                        # text_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            app.root.current = "home"
+                            app.root.transition.direction = "right"
+                MDFloatLayout:
+                    MDLabel:
+                        text: "MV"
+                    MDIconButton:
+                        icon: "arrow-left-thick"
+                        icon_size: "40sp"
+                        pos_hint: {'center_x': .1, "center_y": .05}
+                        # theme_text_color: 'Custom'
+                        # text_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.go_to_first_slide()
+                MDFloatLayout:
+                    MDLabel:
+                        text: "tiktok"
+                    MDIconButton:
+                        icon: "arrow-left-thick"
+                        icon_size: "40sp"
+                        pos_hint: {'center_x': .1, "center_y": .05}
+                        # theme_text_color: 'Custom'
+                        # text_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.go_to_first_slide()
+                MDFloatLayout:
+                    MDLabel:
+                        text: "recap"
+                    MDIconButton:
+                        icon: "arrow-left-thick"
+                        icon_size: "40sp"
+                        pos_hint: {'center_x': .1, "center_y": .05}
+                        # theme_text_color: 'Custom'
+                        # text_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.go_to_first_slide()
+                MDFloatLayout:
+                    MDLabel:
+                        text: "TVC"
+                    MDIconButton:
+                        icon: "arrow-left-thick"
+                        icon_size: "40sp"
+                        pos_hint: {'center_x': .1, "center_y": .05}
+                        # theme_text_color: 'Custom'
+                        # text_color: rgba(255, 255, 255, 255)
+                        on_release: 
+                            videoCarousel.go_to_first_slide()
+                

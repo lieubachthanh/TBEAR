@@ -1,0 +1,138 @@
+#:kivy 2.1
+
+order: 
+    id: order
+    name: 'order'
+    MDFloatLayout:
+        MDCard:
+            md_bg_color: rgba(255, 255, 255, 255)
+            size_hint: .9, .55
+            pos_hint: {"center_x": .5,"center_y": .55}
+            elevation: 1
+            MyCarousel:
+                id: myCarousel
+                MDFloatLayout:
+                    MDLabel:
+                        text: "Booking dịch vụ truyền thông"
+                        halign: "center"
+                        bold: True
+                        pos_hint: {"center_x": .5,"center_y": .85}
+                        font_size: '20sp'
+                    MDLabel:
+                        text: "TBEAR chúng mình sẽ liên hệ với bạn dựa vào thông tin bạn cung cấp"
+                        size_hint_x: .8
+                        pos_hint: {"center_x": .5,"center_y": .75}
+                        halign: "center"
+                        theme_text_color: 'Custom'
+                        font_size: '15sp'
+                        text_color: rgba(204, 204, 204, 255)
+                    MDTextField:
+                        hint_text: "Khu vực cho thuê"
+                        size_hint_x: .8
+                        mode: "rectangle"
+                        pos_hint: {"center_x": .5,"center_y": .6}
+                    MDTextField:
+                        hint_text: "tên người thuê"
+                        size_hint_x: .8
+                        mode: "rectangle"
+                        pos_hint: {"center_x": .5,"center_y": .48}
+                    MDTextField:
+                        hint_text: "số điện thoại"
+                        size_hint_x: .8
+                        mode: "rectangle"
+                        pos_hint: {"center_x": .5,"center_y": .36}
+                    MDTextField:
+                        hint_text: "Dịch vụ Booking/Combo"
+                        size_hint_x: .8
+                        mode: "rectangle"
+                        pos_hint: {"center_x": .5,"center_y": .24}
+                    MDFlatButton:
+                        text: "Đăng ký với TBEAR"
+                        size_hint_x: .8
+                        pos_hint: {"center_x": .5,"center_y": .1}
+                        md_bg_color: rgba(204, 204, 204,255)
+                    
+                    # MDLabel:
+                    #     text: "1M - 35M"
+                    #     size_hint_x: .6
+                    #     pos_hint: {"center_x": .65,"center_y": .5}
+                    #     # bold: True
+                    #     # theme_text_color: 'Custom'
+                    #     font_size: '50sp'
+                    #     # text_color: rgba(255, 255, 255, 255)
+
+                    # MDFlatButton:
+                    #     text: "Music Video"
+                    #     size_hint_x: .8
+                    #     pos_hint: {"center_x": .5,"center_y": .4}
+                    #     md_bg_color: rgba(255, 255, 255, 255)
+                    #     on_release: 
+                    #         videoCarousel.load_service(1)
+                    
+                    # MDFlatButton:
+                    #     text: "Tiktok | Reel"
+                    #     size_hint_x: .8
+                    #     pos_hint: {"center_x": .5,"center_y": .33}
+                    #     md_bg_color: rgba(255, 255, 255, 255)
+                    #     on_release: 
+                    #         videoCarousel.load_service(2)
+                    
+                    # MDFlatButton:
+                    #     text: "Recap sự kiện"
+                    #     size_hint_x: .8
+                    #     pos_hint: {"center_x": .5,"center_y": .26}
+                    #     md_bg_color: rgba(255, 255, 255, 255)
+                    #     on_release: 
+                    #         videoCarousel.load_service(3)
+                    
+                    # MDFlatButton:
+                    #     text: "TVC | Viral video"
+                    #     size_hint_x: .8
+                    #     pos_hint: {"center_x": .5,"center_y": .19}
+                    #     md_bg_color: rgba(255, 255, 255, 255)
+                    #     on_release: 
+                    #         videoCarousel.load_service(4)
+                    
+                    # MDIconButton:
+                    #     icon: "arrow-left-thick"
+                    #     icon_size: "40sp"
+                    #     pos_hint: {'center_x': .1, "center_y": .05}
+                    #     # theme_text_color: 'Custom'
+                    #     # text_color: rgba(255, 255, 255, 255)
+                    #     on_release: 
+                    #         app.root.current = "home"
+                    #         app.root.transition.direction = "right"
+        MDCard:
+            size_hint: 1,.1 
+            pos_hint: {"center_x": .5,"center_y": .05} 
+            md_bg_color:  rgba(252, 200, 115,255)
+            MDFloatLayout:
+                MDIconButton:
+                    icon: "home"
+                    icon_size: "50sp"
+                    pos_hint: {'center_x': .2, "center_y": .5}
+                    on_release:
+                        app.root.current = "home"
+                        root.manager.transition.direction = "left"
+                MDIconButton:
+                    icon: "flag"
+                    icon_size: "50sp"
+                    pos_hint: {'center_x': .4, "center_y": .5}
+                    on_release:
+                        # app.root.current = "login"
+                        # root.manager.transition.direction = "left"
+                MDIconButton:
+                    icon: "calendar"
+                    icon_size: "50sp"
+                    pos_hint: {'center_x': .6, "center_y": .5}
+                    on_release:
+                        app.root.current = "project"
+                        root.manager.transition.direction = "left"
+                MDIconButton:
+                    icon: "account"
+                    icon_size: "50sp"
+                    pos_hint: {'center_x': .8, "center_y": .5}
+                    on_release:
+                        # app.root.current = "login"
+                        # root.manager.transition.direction = "left"
+        
